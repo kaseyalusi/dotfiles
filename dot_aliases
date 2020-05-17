@@ -1,7 +1,17 @@
 alias ap='export AWS_PROFILE="$(grep \\\[ ~/.aws/credentials | tr -d "[]" | fzf)"'
-alias zshrc="emacs ~/.zshrc && . ~/.zshrc"
+alias zshrc="chezmoi edit ~/.zshrc --apply && . ~/.zshrc"
 alias gitm="git checkout master && git pull"
 alias gpo="git push origin HEAD"
-alias eli="emacs ~/.aliases && . ~/.zshrc"
+alias eli="chezmoi edit ~/.aliases --apply && . ~/.zshrc"
 alias okt="okta2aws login"
 alias gv="go mod tidy && go mod vendor"
+# fkill - kill process
+fkill() {
+  local pid
+  pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+
+  if [ "x$pid" != "x" ]
+  then
+    echo $pid | xargs kill -${1:-9}
+  fi
+}
