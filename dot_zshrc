@@ -9,7 +9,7 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/kasey/.oh-my-zsh"
+export ZSH="/Users/$USER/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -74,7 +74,7 @@ export ZSH="/Users/kasey/.oh-my-zsh"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git fzf-zsh golang osx z history)
+plugins=(git fzf golang osx z history aws)
 
 # User configuration
 
@@ -101,8 +101,17 @@ plugins=(git fzf-zsh golang osx z history)
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias zshrc="emacs ~/.zshrc && . ~/.zshrc"
+export PATH=$PATH:/Users/kasey.alusi/go/bin
+source ~/.aliases
+if [[ "$USER" == "kasey.alusi" ]]; then
+  source ~/.work_only
+fi
+. $(brew --prefix asdf)/asdf.sh
+
+
 ZSH_THEME="powerlevel10k/powerlevel10k"
 source $ZSH/oh-my-zsh.sh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

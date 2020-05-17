@@ -1,0 +1,7 @@
+alias ap='export AWS_PROFILE="$(grep \\\[ ~/.aws/credentials | tr -d "[]" | fzf)"'
+alias zshrc="emacs ~/.zshrc && . ~/.zshrc"
+alias gitm="git checkout master && git pull"
+alias gpo="git push origin HEAD"
+alias eli="emacs ~/.aliases && . ~/.zshrc"
+alias okt="okta2aws login"
+alias gv="go mod tidy && go mod vendor"
