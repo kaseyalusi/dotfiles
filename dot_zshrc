@@ -103,7 +103,7 @@ plugins=(git fzf golang osx z history aws)
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-export PATH=$PATH:/Users/kasey.alusi/go/bin
+export PATH=$PATH:/Users/kasey/go/bin
 source ~/.aliases
 if [[ "$USER" == "kasey.alusi" ]]; then
   source ~/.work_only
